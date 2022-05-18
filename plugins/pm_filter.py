@@ -106,12 +106,18 @@ async def next_page(bot, query):
         )
         btn.append(
             [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
+        ) 
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
         )        
     elif off_set is None:
         btn.append([InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"),
                     InlineKeyboardButton(f"{round(int(offset)/10)+1} - {round(total/10)}", callback_data="pages"),
                     InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")])
-        btn.append([InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")])        
+        btn.append([InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")])
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
+        )        
     else:
         btn.append(
             [
@@ -122,6 +128,9 @@ async def next_page(bot, query):
         )
         btn.append(
             [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
+        )
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
         )        
     try:
         await query.edit_message_reply_markup(
@@ -703,14 +712,20 @@ async def auto_filter(client, msg, spoll=False):
         )
         btn.append(
             [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
+        )
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
         )        
     else:
         btn.append(
-            [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
-        )        
-        btn.append(
             [InlineKeyboardButton(text="ᴍᴏʀᴇ ᴘᴀɢᴇ ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ", callback_data="pages")]
         )
+        btn.append(
+            [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
+        )
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
+        )        
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
